@@ -23,6 +23,10 @@
 		3FA0E68A1C914CA800721DFF /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0E6801C914CA800721DFF /* 9.jpg */; };
 		3FA0E68B1C914CA800721DFF /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0E6811C914CA800721DFF /* 10.jpg */; };
 		3FA0E68E1C914CD200721DFF /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E68D1C914CD200721DFF /* ImagesTableViewController.m */; };
+		3FA0E6911C93C7D500721DFF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6901C93C7D500721DFF /* User.m */; };
+		3FA0E6941C93C8B000721DFF /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6931C93C8B000721DFF /* Media.m */; };
+		3FA0E6971C93C90F00721DFF /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6961C93C90F00721DFF /* Comment.m */; };
+		3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6991C93D80D00721DFF /* DataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,14 @@
 		3FA0E6811C914CA800721DFF /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 10.jpg; path = "../../../../Downloads/blocstagram-sample-images/10.jpg"; sourceTree = "<group>"; };
 		3FA0E68C1C914CD200721DFF /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
 		3FA0E68D1C914CD200721DFF /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		3FA0E68F1C93C7D500721DFF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3FA0E6901C93C7D500721DFF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3FA0E6921C93C8B000721DFF /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		3FA0E6931C93C8B000721DFF /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		3FA0E6951C93C90F00721DFF /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		3FA0E6961C93C90F00721DFF /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		3FA0E6981C93D80D00721DFF /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		3FA0E6991C93D80D00721DFF /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +120,14 @@
 				3FA0E6521C910AB500721DFF /* Supporting Files */,
 				3FA0E68C1C914CD200721DFF /* ImagesTableViewController.h */,
 				3FA0E68D1C914CD200721DFF /* ImagesTableViewController.m */,
+				3FA0E68F1C93C7D500721DFF /* User.h */,
+				3FA0E6901C93C7D500721DFF /* User.m */,
+				3FA0E6921C93C8B000721DFF /* Media.h */,
+				3FA0E6931C93C8B000721DFF /* Media.m */,
+				3FA0E6951C93C90F00721DFF /* Comment.h */,
+				3FA0E6961C93C90F00721DFF /* Comment.m */,
+				3FA0E6981C93D80D00721DFF /* DataSource.h */,
+				3FA0E6991C93D80D00721DFF /* DataSource.m */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -255,7 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA0E6911C93C7D500721DFF /* User.m in Sources */,
+				3FA0E6971C93C90F00721DFF /* Comment.m in Sources */,
+				3FA0E6941C93C8B000721DFF /* Media.m in Sources */,
 				3FA0E6571C910AB500721DFF /* AppDelegate.m in Sources */,
+				3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */,
 				3FA0E6541C910AB500721DFF /* main.m in Sources */,
 				3FA0E68E1C914CD200721DFF /* ImagesTableViewController.m in Sources */,
 			);
