@@ -27,6 +27,7 @@
 		3FA0E6941C93C8B000721DFF /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6931C93C8B000721DFF /* Media.m */; };
 		3FA0E6971C93C90F00721DFF /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6961C93C90F00721DFF /* Comment.m */; };
 		3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6991C93D80D00721DFF /* DataSource.m */; };
+		3FFB659A1C952B6600BF7395 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB65991C952B6600BF7395 /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		3FA0E6961C93C90F00721DFF /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		3FA0E6981C93D80D00721DFF /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		3FA0E6991C93D80D00721DFF /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3FFB65981C952B6600BF7395 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		3FFB65991C952B6600BF7395 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				3FA0E6961C93C90F00721DFF /* Comment.m */,
 				3FA0E6981C93D80D00721DFF /* DataSource.h */,
 				3FA0E6991C93D80D00721DFF /* DataSource.m */,
+				3FFB65981C952B6600BF7395 /* MediaTableViewCell.h */,
+				3FFB65991C952B6600BF7395 /* MediaTableViewCell.m */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			files = (
 				3FA0E6911C93C7D500721DFF /* User.m in Sources */,
 				3FA0E6971C93C90F00721DFF /* Comment.m in Sources */,
+				3FFB659A1C952B6600BF7395 /* MediaTableViewCell.m in Sources */,
 				3FA0E6941C93C8B000721DFF /* Media.m in Sources */,
 				3FA0E6571C910AB500721DFF /* AppDelegate.m in Sources */,
 				3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */,
