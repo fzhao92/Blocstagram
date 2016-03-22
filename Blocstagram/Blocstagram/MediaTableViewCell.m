@@ -183,8 +183,9 @@ static NSParagraphStyle *paragraphStyle;
     // Make a cell
     MediaTableViewCell *layoutCell = [[MediaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
     
+    layoutCell.mediaItem = mediaItem;
+    
     layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
-
     
     [layoutCell setNeedsLayout];
     [layoutCell layoutIfNeeded];
