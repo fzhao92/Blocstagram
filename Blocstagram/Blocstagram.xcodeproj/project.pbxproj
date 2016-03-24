@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0B53081CA269E300F93AF7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B53071CA269E300F93AF7 /* LoginViewController.m */; };
 		3FA0E6541C910AB500721DFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6531C910AB500721DFF /* main.m */; };
 		3FA0E6571C910AB500721DFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6561C910AB500721DFF /* AppDelegate.m */; };
 		3FA0E65F1C910AB500721DFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0E65E1C910AB500721DFF /* Assets.xcassets */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0B53061CA269E300F93AF7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3F0B53071CA269E300F93AF7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3FA0E64F1C910AB500721DFF /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA0E6531C910AB500721DFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FA0E6551C910AB500721DFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				3FA0E6991C93D80D00721DFF /* DataSource.m */,
 				3FFB65981C952B6600BF7395 /* MediaTableViewCell.h */,
 				3FFB65991C952B6600BF7395 /* MediaTableViewCell.m */,
+				3F0B53061CA269E300F93AF7 /* LoginViewController.h */,
+				3F0B53071CA269E300F93AF7 /* LoginViewController.m */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				3FFB659A1C952B6600BF7395 /* MediaTableViewCell.m in Sources */,
 				3FA0E6941C93C8B000721DFF /* Media.m in Sources */,
 				3FA0E6571C910AB500721DFF /* AppDelegate.m in Sources */,
+				3F0B53081CA269E300F93AF7 /* LoginViewController.m in Sources */,
 				3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */,
 				3FA0E6541C910AB500721DFF /* main.m in Sources */,
 				3FA0E68E1C914CD200721DFF /* ImagesTableViewController.m in Sources */,
