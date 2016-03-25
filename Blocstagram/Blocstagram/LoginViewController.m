@@ -29,7 +29,8 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     [self.view addSubview:webView];
     self.webView = webView;
     
-    self.title = NSLocalizedString(@"Login", @"Login");
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = backButton;
     
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [DataSource instagramClientID], [self redirectURI]];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -43,6 +44,12 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
 - (void) dealloc {
     [self clearInstagramCookies];
     self.webView.delegate = nil;
+}
+
+- (IBAction)backButtonPressed:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    NSLog(@"Executed backButtonPressed");
 }
 
 - (void) clearInstagramCookies {
