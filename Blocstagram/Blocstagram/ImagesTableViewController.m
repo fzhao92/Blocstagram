@@ -174,4 +174,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+    if (item.image) {
+        return 350;
+    }
+    else{
+        return 150;
+    }
+}
 @end
