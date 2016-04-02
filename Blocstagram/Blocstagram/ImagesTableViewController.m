@@ -103,7 +103,8 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [self items][indexPath.row];
-    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
+    CGFloat height = [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
+    return height;
 }
 
 
@@ -174,7 +175,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+/*
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
     if (item.image) {
@@ -183,5 +184,7 @@
     else{
         return 150;
     }
-}
+
+}*/
 @end
+
