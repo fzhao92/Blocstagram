@@ -111,20 +111,21 @@
         
         [mutableParameters addEntriesFromDictionary:parameters];
         
-        [self.instagramOperationManager GET:@"users/self/feed"
-                                 parameters:mutableParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                                         [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
-                                     }
-                                     
-                                     if (completionHandler) {
-                                         completionHandler(nil);
-                                     }
-                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     if (completionHandler){
-                                         completionHandler(error);
-                                     }
-                                 }];
+        [self.instagramOperationManager GET:@"users/self/media/recent"
+                                 parameters:mutableParameters
+                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                                            [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
+                                        }
+                                        
+                                        if (completionHandler) {
+                                            completionHandler(nil);
+                                        }
+                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                        if (completionHandler) {
+                                            completionHandler(error);
+                                        }
+                                    }];
          
     }
 }
@@ -279,10 +280,11 @@
 }
 
 - (void) createOperationManager {
-    NSURL *baseURL = [NSURL URLWithString:@"https://api.instagram.com/vi/"];
+    NSURL *baseURL = [NSURL URLWithString:@"https://api.instagram.com/v1/"];
     self.instagramOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    
     AFJSONResponseSerializer *jsonSerializer = [AFJSONResponseSerializer serializer];
-
+    
     AFImageResponseSerializer *imageSerializer = [AFImageResponseSerializer serializer];
     imageSerializer.imageScale = 1.0;
     
