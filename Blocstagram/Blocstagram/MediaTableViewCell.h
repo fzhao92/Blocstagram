@@ -17,11 +17,19 @@
 
 @end
 
+@protocol DataSourceCellDelegate <NSObject>
+
+- (void) cell:(MediaTableViewCell *)cell didTwoFingerPressImageView:(UIImageView *)imageView;
+
+@end
+
 @interface MediaTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) Media *mediaItem;
 @property (nonatomic, weak) id <MediaTableViewCellDelegate> delegate;
+@property (nonatomic, weak) id <DataSourceCellDelegate> dataSourceDelegate;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 
 +(CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width;
 

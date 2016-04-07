@@ -13,9 +13,10 @@
 #import "LoginViewController.h"
 #import <UICKeyChainStore.h>
 #import <AFNetworking.h>
+#import "MediaTableViewCell.h"
 
 
-@interface DataSource () {
+@interface DataSource () <DataSourceCellDelegate> {
     NSMutableArray *_mediaItems;
 }
 
@@ -291,4 +292,11 @@
     AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, imageSerializer]];
     self.instagramOperationManager.responseSerializer = serializer;
 }
+
+#pragma mark - MediaTableViewCellDelegate
+
+- (void) cell:(MediaTableViewCell *)cell didTwoFingerPressImageView:(UIImageView *)imageView {
+    [self downloadImageForMediaItem:cell.mediaItem];
+}
+
 @end

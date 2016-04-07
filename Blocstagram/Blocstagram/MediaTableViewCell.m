@@ -50,6 +50,11 @@ static NSParagraphStyle *paragraphStyle;
         self.longPressGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
         
+        self.twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerPressFired:)];
+        [self.twoFingerTapGestureRecognizer setNumberOfTouchesRequired:2];
+        self.twoFingerTapGestureRecognizer.delegate = self;
+        [self.mediaImageView addGestureRecognizer:self.twoFingerTapGestureRecognizer];
+        
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.usernameAndCaptionLabel.numberOfLines = 0;
         self.usernameAndCaptionLabel.backgroundColor = usernameLabelGray;
@@ -223,6 +228,11 @@ static NSParagraphStyle *paragraphStyle;
 - (void) longPressFired:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self.delegate cell:self didLongPressImageView:self.mediaImageView];
+    }
+}
+- (void) twoFingerPressFired:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        [self.dataSourceDelegate cell:self didTwoFingerPressImageView:self.mediaImageView];
     }
 }
 
