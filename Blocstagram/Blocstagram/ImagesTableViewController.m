@@ -28,6 +28,13 @@
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
+    
+    self.scrollView = [UIScrollView new];
+    self.scrollView.delegate = self;
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.scrollView];
+
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -104,10 +111,11 @@
 }
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
         [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
-    }
+    }*/
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,11 +163,30 @@
     }
 }
 
+- (void) downloadImagesAtDeceleration {
+    NSArray *indexPaths = [self.tableView indexPathsForVisibleRows];
+    for (NSIndexPath *indexPath in indexPaths) {
+        Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+            [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+        }
+    }
+}
+
 #pragma mark - UIScrollViewDelegate
 
 // #4
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     [self infiniteScrollIfNecessary];
+}
+
+- (void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    if (!self.scrollView.isDragging) {
+        NSLog(@"Scrolling is decelerating, download images");
+        [self downloadImagesAtDeceleration];
+    } else {
+        NSLog(@"User is currently dragging");
+    }
 }
 
 #pragma mark - MediaTableViewCellDelegate

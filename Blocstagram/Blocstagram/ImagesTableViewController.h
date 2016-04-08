@@ -10,4 +10,8 @@
 
 @interface ImagesTableViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, assign) CGFloat decelerationRate;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property(nonatomic, readonly, getter=isDragging) BOOL dragging;
+
 @end
