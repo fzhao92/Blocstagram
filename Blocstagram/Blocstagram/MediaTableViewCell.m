@@ -232,7 +232,8 @@ static NSParagraphStyle *paragraphStyle;
 }
 - (void) twoFingerPressFired:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {
-        [self.dataSourceDelegate cell:self didTwoFingerPressImageView:self.mediaImageView];
+//        [self.dataSourceDelegate cell:self didTwoFingerPressImageView:self.mediaImageView];
+        [self.dataSourceDelegate downloadImageForMediaItem:self.mediaItem];
     }
 }
 

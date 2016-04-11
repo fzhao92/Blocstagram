@@ -99,6 +99,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.delegate = self;
+    cell.dataSourceDelegate = [DataSource sharedInstance];
+                            
     cell.mediaItem = [self items][indexPath.row];
     return cell;
 }

@@ -19,7 +19,8 @@
 
 @protocol DataSourceCellDelegate <NSObject>
 
-- (void) cell:(MediaTableViewCell *)cell didTwoFingerPressImageView:(UIImageView *)imageView;
+//- (void) cell:(MediaTableViewCell *)cell didTwoFingerPressImageView:(UIImageView *)imageView;
+- (void) downloadImageForMediaItem:(Media *) mediaItem;
 
 @end
 
