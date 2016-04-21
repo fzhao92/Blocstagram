@@ -9,7 +9,7 @@
 #import "LikeButton.h"
 #import "CircleSpinnerView.h"
 
-#define kLikedStateImage @"Heart-full"
+#define kLikedStateImage @"heart-full"
 #define kUnlikedStateImage @"heart-empty"
 
 @interface LikeButton ()
