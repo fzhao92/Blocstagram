@@ -9,7 +9,7 @@
 #import "LikeButton.h"
 #import "CircleSpinnerView.h"
 
-#define kLikedStateImage @"Heart-full"
+#define kLikedStateImage @"heart-full"
 #define kUnlikedStateImage @"heart-empty"
 
 @interface LikeButton ()
@@ -24,8 +24,10 @@
     self = [super init];
     
     if (self) {
-        self.spinnerView = [[CircleSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+       self.spinnerView = [[CircleSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+  //      self.spinnerView = [[CircleSpinnerView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, 44, 44)];
         [self addSubview:self.spinnerView];
+//        [self.superview addSubview:self.spinnerView];
         
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         
