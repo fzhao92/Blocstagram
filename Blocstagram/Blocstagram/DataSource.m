@@ -225,6 +225,7 @@
             }
         }];
     }
+    [self saveImages];
 }
 
 #pragma mark - Key/Value Observing

@@ -67,8 +67,6 @@ static NSParagraphStyle *paragraphStyle;
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor= usernameLabelGray;
         
-        //self.numberOfLikes = 0;
-
         self.likesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
         self.likesLabel.text = [NSString stringWithFormat:@"%ld", self.mediaItem.numberOfLikes];
         self.likesLabel.backgroundColor = usernameLabelGray;
@@ -237,6 +235,7 @@ static NSParagraphStyle *paragraphStyle;
     [self.delegate cellDidPressLikeButton:self];
     self.mediaItem.numberOfLikes++;
     self.likesLabel.text = [NSString stringWithFormat:@"%ld", self.mediaItem.numberOfLikes];
+    self.mediaItem.likeState = LikeStateLiked;
 }
 
 #pragma mark - Image View
