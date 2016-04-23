@@ -10,4 +10,7 @@
 
 @interface ImagesTableViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, weak) UIView *lastSelectedCommentView;
+@property (nonatomic, assign) CGFloat lastKeyboardAdjustment;
+
 @end

@@ -39,7 +39,7 @@
     NSString *baseString = NSLocalizedString(@"COMMENT", @"comment button text");
     NSRange range = [baseString rangeOfString:baseString];
     
-    NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc]initWithString:baseString];
+    NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:baseString];
     
     [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:10] range:range];
     [commentString addAttribute:NSKernAttributeName value:@1.3 range:range];
@@ -104,6 +104,42 @@
     self.textView.userInteractionEnabled = YES;
     self.isWritingComment = text.length > 0;
 }
+
+- (void) commentButtonPressed:(UIButton *) sender {
+    if (self.isWritingComment) {
+        [self.textView resignFirstResponder];
+        self.textView.userInteractionEnabled = NO;
+        [self.delegate commentViewDidPressCommentButton:self];
+    } else {
+        [self setIsWritingComment:YES animated:YES];
+        [self.textView becomeFirstResponder];
+    }
+}
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
+    [self setIsWritingComment:YES animated:YES];
+    [self.delegate commentViewWillStartEditing:self];
+    
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    [self.delegate commentView:self textDidChange:newText];
+    return YES;
+}
+
+- (BOOL) textViewShouldEndEditing:(UITextView *)textView {
+    BOOL hasComment = (textView.text.length > 0);
+    [self setIsWritingComment:hasComment animated:YES];
+    
+    return YES;
+}
+
+
+
 
 
 /*

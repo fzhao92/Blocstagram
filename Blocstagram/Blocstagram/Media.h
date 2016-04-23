@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, MediaDownloadState){
 
 @property (nonatomic, strong) NSArray *comments;
 
+@property (nonatomic, strong) NSString *temporaryComment;
+
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 
 @end
