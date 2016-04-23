@@ -105,7 +105,36 @@
     self.isWritingComment = text.length > 0;
 }
 
+- (void)increaseButtonSize:(UIView *)view{
+    [UIView animateWithDuration:0.5
+                          delay:0.3
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:1.0
+                        options:nil
+                     animations:^
+     {
+         self.button.transform = CGAffineTransformMakeScale(1.5, 1.5);
+     }
+                     completion:nil];
+}
+
+- (void) decreaseButtonSize:(UIView *)view{
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+         usingSpringWithDamping:0.3
+          initialSpringVelocity:1.0
+                        options:nil
+                     animations:^
+     {
+         self.button.transform = CGAffineTransformMakeScale(1.0, 1.0);
+     }
+                     completion:nil];
+
+}
+
 - (void) commentButtonPressed:(UIButton *) sender {
+    [self increaseButtonSize:self.button];
+    [self decreaseButtonSize:self.button];
     if (self.isWritingComment) {
         [self.textView resignFirstResponder];
         self.textView.userInteractionEnabled = NO;
