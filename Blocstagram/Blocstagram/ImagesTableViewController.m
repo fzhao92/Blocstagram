@@ -13,6 +13,7 @@
 #import "Comment.h"
 #import "MediaTableViewCell.h"
 #import "MediaFullScreenViewController.h"
+#import "CameraViewController.h"
 
 @interface ImagesTableViewController () <MediaTableViewCellDelegate>
 
