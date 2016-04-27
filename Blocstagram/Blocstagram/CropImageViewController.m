@@ -39,7 +39,7 @@
     
     [self.view addSubview:self.cropBox];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Crop", @"Crop command") style:UIBarButtonItemStyleDone target:self action:@selector(cropPressed)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Crop", @"Crop command") style:UIBarButtonItemStyleDone target:self action:@selector(cropPressed:)];
     
     self.navigationItem.title = NSLocalizedString(@"Crop Image", nil);
     self.navigationItem.rightBarButtonItem = rightButton;

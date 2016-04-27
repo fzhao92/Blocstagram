@@ -140,6 +140,10 @@
         imageVC = imageLibraryVC;
     }
     
+    if (imageVC) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imageVC];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
     return;
 }
 
