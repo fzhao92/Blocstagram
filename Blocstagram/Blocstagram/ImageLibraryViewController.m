@@ -83,4 +83,44 @@
     return self.result.count;
 }
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSInteger imageViewTag = 54321;
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
+    
+    if (!imageView) {
+        imageView= [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
+        imageView.tag = imageViewTag;
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        [cell.contentView addSubview:imageView];
+    }
+    
+    if (cell.tag != 0) {
+        [[PHImageManager defaultManager] cancelImageRequest:(PHImageRequestID)cell.tag];
+    }
+    
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    PHAsset *asset = self.result[indexPath.row];
+    
+    cell.tag = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:flowLayout.itemSize contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info) {
+        UICollectionViewCell *cellToUpdate = [collectionView cellForItemAtIndexPath:indexPath];
+        
+        if (cellToUpdate) {
+            UIImageView *imageView = (UIImageView *)[cellToUpdate.contentView viewWithTag:imageViewTag];
+            imageView.image = result;
+        }
+    }];
+    
+    return cell;
+}
+
+#pragma mark - CropImageViewControllerDelegate
+
+- (void) cropControllerFinishedWithImage:(UIImage *)croppedImage {
+    [self.delegate imageLibaryViewController:self didCompleteWithImage:croppedImage];
+}
 @end
