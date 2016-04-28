@@ -16,6 +16,9 @@
 @property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, assign) BOOL hasLoadedOnce;
 
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
+
 @end
 
 @implementation CropImageViewController
@@ -26,10 +29,24 @@
     if (self) {
         self.media = [[Media alloc] init];
         self.media.image = sourceImage;
-        
-        self.cropBox = [CropBox new];
+        [self createViews];
     }
     return self;
+}
+
+- (void) createViews{
+    self.topView = [UIToolbar new];
+    self.bottomView = [UIToolbar new];
+    UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+    self.cropBox = [CropBox new];
+    self.topView.barTintColor = whiteBG;
+    self.bottomView.barTintColor = whiteBG;
+    self.topView.alpha = 0.5;
+    self.bottomView.alpha = 0.5;
+}
+
+- (void) addViewsToHierarchy {
+    
 }
 
 - (void) viewDidLoad {
