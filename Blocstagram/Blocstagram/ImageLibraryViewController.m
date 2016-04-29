@@ -52,7 +52,8 @@
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
     flowLayout.minimumInteritemSpacing = 5;
-    flowLayout.minimumLineSpacing = 5;
+    flowLayout.minimumLineSpacing = flowLayout.minimumInteritemSpacing;
+    
 }
 
 - (void) loadAssets {
