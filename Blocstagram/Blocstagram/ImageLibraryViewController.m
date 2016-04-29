@@ -47,12 +47,12 @@
     CGFloat width = CGRectGetWidth(self.view.frame);
     CGFloat minWidth = 100;
     NSInteger divisor = width / minWidth;
-    CGFloat cellSize = width / divisor;
+    CGFloat cellSize = width / divisor - 5;
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
     flowLayout.minimumInteritemSpacing = 5;
-    flowLayout.minimumLineSpacing = 50;
+    flowLayout.minimumLineSpacing = 5;
 }
 
 - (void) loadAssets {
