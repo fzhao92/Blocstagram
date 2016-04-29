@@ -30,6 +30,7 @@
         self.media = [[Media alloc] init];
         self.media.image = sourceImage;
         [self createViews];
+        [self addViewsToHierarchy];
     }
     return self;
 }
@@ -46,7 +47,8 @@
 }
 
 - (void) addViewsToHierarchy {
-    
+    [self.view addSubview:self.topView];
+    [self.view addSubview:self.bottomView];
 }
 
 - (void) viewDidLoad {
@@ -68,7 +70,7 @@
 
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
+
     CGRect cropRect = CGRectZero;
     
     CGFloat edgeSize = MIN(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
@@ -80,6 +82,14 @@
     self.cropBox.center = CGPointMake(size.width / 2, size.height / 2);
     self.scrollView.frame = self.cropBox.frame;
     self.scrollView.clipsToBounds = NO;
+    
+    CGFloat width = CGRectGetWidth(self.cropBox.bounds);
+    self.topView.frame = CGRectMake(0, 0, width, CGRectGetMinY(self.cropBox.frame));
+    
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightofbottomview = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
+    
+    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightofbottomview);
     
     [self recalculateZoomScale];
     
