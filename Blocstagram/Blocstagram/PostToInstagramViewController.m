@@ -206,6 +206,200 @@
             [self addCIImageToCollectionView:noirFilter.outputImage withFilterTitle:NSLocalizedString(@"Noir", @"Noir Filter")];
         }
     }];
+    
+    // Boom filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *boomFilter = [CIFilter filterWithName:@"CIPhotoEffectProcess"];
+        
+        if (boomFilter) {
+            [boomFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:boomFilter.outputImage withFilterTitle:NSLocalizedString(@"Boom", @"Boom Filter")];
+        }
+    }];
+    
+    // Warm filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *warmFilter = [CIFilter filterWithName:@"CIPhotoEffectTransfer"];
+        
+        if (warmFilter) {
+            [warmFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:warmFilter.outputImage withFilterTitle:NSLocalizedString(@"Warm", @"Warm Filter")];
+        }
+    }];
+    
+    // Pixel filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *pixelFilter = [CIFilter filterWithName:@"CIPixellate"];
+        
+        if (pixelFilter) {
+            [pixelFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:pixelFilter.outputImage withFilterTitle:NSLocalizedString(@"Pixel", @"Pixel Filter")];
+        }
+    }];
+    
+    // Moody filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *moodyFilter = [CIFilter filterWithName:@"CISRGBToneCurveToLinear"];
+        
+        if (moodyFilter) {
+            [moodyFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:moodyFilter.outputImage withFilterTitle:NSLocalizedString(@"Moody", @"Moody Filter")];
+        }
+    }];
+    
+    // Drunk filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *drunkFilter = [CIFilter filterWithName:@"CIConvolution5X5"];
+        CIFilter *tiltFilter = [CIFilter filterWithName:@"CIStraightenFilter"];
+        
+        if (drunkFilter) {
+            [drunkFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            
+            CIVector *drunkVector = [CIVector vectorWithString:@"[0.5 0 0 0 0 0 0 0 0 0.05 0 0 0 0 0 0 0 0 0 0 0.05 0 0 0 0.5]"];
+            [drunkFilter setValue:drunkVector forKey:@"inputWeights"];
+            
+            CIImage *result = drunkFilter.outputImage;
+            
+            if (tiltFilter) {
+                [tiltFilter setValue:result forKeyPath:kCIInputImageKey];
+                [tiltFilter setValue:@0.2 forKeyPath:kCIInputAngleKey];
+                result = tiltFilter.outputImage;
+            }
+            
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Drunk", @"Drunk Filter")];
+        }
+    }];
+    
+    // Film filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        //#1
+        CIFilter *sepiaFilter = [CIFilter filterWithName:@"CISepiaTone"];
+        [sepiaFilter setValue:@1 forKey:kCIInputIntensityKey];
+        [sepiaFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+        
+        // #2
+        CIFilter *randomFilter = [CIFilter filterWithName:@"CIRandomGenerator"];
+        
+        CIImage *randomImage = [CIFilter filterWithName:@"CIRandomGenerator"].outputImage;
+        
+        // #3
+        CIImage *otherRandomImage = [randomImage imageByApplyingTransform:CGAffineTransformMakeScale(1.5, 25.0)];
+        
+        // #4
+        CIFilter *whiteSpecks = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:kCIInputImageKey, randomImage,
+                                 @"inputRVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputBVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputAVector", [CIVector vectorWithX:0.0 Y:0.01 Z:0.0 W:0.0],
+                                 @"inputBiasVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:0.0],
+                                 nil];
+        
+        CIFilter *darkScratches = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:kCIInputImageKey, otherRandomImage,
+                                   @"inputRVector", [CIVector vectorWithX:3.659f Y:0.0 Z:0.0 W:0.0],
+                                   @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                   @"inputBVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                   @"inputAVector", [CIVector vectorWithX:0.0 Y:0.01 Z:0.0 W:0.0],
+                                   @"inputBiasVector", [CIVector vectorWithX:0.0 Y:1.0 Z:1.0 W:1.0],
+                                   nil];
+        // #5
+        CIFilter *minimumComponent = [CIFilter filterWithName:@"CIMinimumComponent"];
+        CIFilter *composite = [CIFilter filterWithName:@"CIMultiplyCompositing"];
+        
+        // #6
+        if (sepiaFilter && randomFilter && whiteSpecks && darkScratches && minimumComponent && composite) {
+            //#7
+            CIImage *sepiaImage = sepiaFilter.outputImage;
+            
+            // #8
+            CIImage *whiteSpecksImage = [whiteSpecks.outputImage imageByCroppingToRect:sourceCIImage.extent];
+            
+            // #9
+            CIImage *sepiaPlusWhiteSpecksImage = [CIFilter filterWithName:@"CISourceOverCompositing" keysAndValues:
+                                                  kCIInputImageKey, whiteSpecksImage, kCIInputBackgroundImageKey, sepiaImage, nil].outputImage;
+            
+            // #10
+            CIImage *darkScratchesImage = [darkScratches.outputImage imageByCroppingToRect:sourceCIImage.extent];
+            
+            [minimumComponent setValue:darkScratchesImage forKey:kCIInputImageKey];
+            darkScratchesImage = minimumComponent.outputImage;
+            
+            [composite setValue:sepiaPlusWhiteSpecksImage forKey:kCIInputImageKey];
+            darkScratchesImage = minimumComponent.outputImage;
+            
+            [composite setValue:sepiaPlusWhiteSpecksImage forKey:kCIInputImageKey];
+            [composite setValue:darkScratchesImage forKey:kCIInputBackgroundImageKey];
+            
+            [self addCIImageToCollectionView:composite.outputImage withFilterTitle:NSLocalizedString(@"Film", @"Film Filter")];
+        }
+    }];
+}
+
+- (void) sendButtonPressed:(id)sender {
+    NSURL *instagramURL = [NSURL URLWithString:@"instagram://location?id=1"];
+    
+    UIAlertController *alertVC;
+    
+    if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
+        alertVC = [UIAlertController alertControllerWithTitle:@"" message:NSLocalizedString(@"Add a caption and send your image in the Instagram app.", @"send image instructions") preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertVC addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = NSLocalizedString(@"Caption", @"Caption");
+        }];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"cancel button") style:UIAlertActionStyleCancel handler:nil]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Send", @"Send button") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            UITextField *textField = alertVC.textFields[0];
+            [self sendImageToInstagramWithCaption:textField.text];
+        }]];
+    } else {
+        alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"No Instagram App", nil) message: NSLocalizedString(@"Add a caption and send your image in the Instagram app", @"send image instructions") preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", "@Ok button") style:UIAlertActionStyleCancel handler:nil]];
+    }
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+- (void) sendImageToInstagramWithCaption:(NSString *)caption {
+    NSData *imageData = UIImageJPEGRepresentation(self.previewImageView.image, 0.9f);
+    
+    
+    NSURL *tmpDirURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+    NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:@"blocstagram"] URLByAppendingPathExtension:@"igo"];
+    
+    BOOL success = [imageData writeToURL:fileURL atomically:YES];
+    
+    if (!success) {
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Couldn't save image", nil) message:NSLocalizedString(@"Your cropped and filtered photo couldn't be saved. Make sure you have enough disk space and try again", nil) preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        return;
+    }
+    
+    self.documentController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+    self.documentController.UTI = @"com.instagram.exclusivegram";
+    self.documentController.delegate = self;
+    
+    if (caption.length > 0) {
+        self.documentController.annotation = @{@"InstagramCaption": caption};
+    }
+    
+    if (self.sendButton.superview) {
+        [self.documentController presentOpenInMenuFromRect:self.sendButton.bounds inView:self.sendButton animated:YES];
+    } else {
+        [self.documentController presentOpenInMenuFromBarButtonItem:self.sendBarButton animated:YES];
+    }
+}
+
+#pragma mark - UIDocumentInteractionControllerDelegate
+
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(NSString *)application {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
