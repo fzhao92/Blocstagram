@@ -26,6 +26,7 @@
 		3FA0E6941C93C8B000721DFF /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6931C93C8B000721DFF /* Media.m */; };
 		3FA0E6971C93C90F00721DFF /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6961C93C90F00721DFF /* Comment.m */; };
 		3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6991C93D80D00721DFF /* DataSource.m */; };
+		3FBF66771CD467810005EEC1 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF66761CD467810005EEC1 /* PostToInstagramViewController.m */; };
 		3FC0A7AA1CC9E9CD007C17CA /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0A7A91CC9E9CD007C17CA /* ComposeCommentView.m */; };
 		3FECC74F1CB870D000943F8A /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FECC74E1CB870D000943F8A /* CircleSpinnerView.m */; };
 		3FFB659A1C952B6600BF7395 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB65991C952B6600BF7395 /* MediaTableViewCell.m */; };
@@ -82,6 +83,8 @@
 		3FA0E6961C93C90F00721DFF /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		3FA0E6981C93D80D00721DFF /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		3FA0E6991C93D80D00721DFF /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3FBF66751CD467810005EEC1 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
+		3FBF66761CD467810005EEC1 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		3FC0A7A81CC9E9CD007C17CA /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
 		3FC0A7A91CC9E9CD007C17CA /* ComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentView.m; sourceTree = "<group>"; };
 		3FECC74D1CB870D000943F8A /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				3F2519FF1CCF31D300A9058A /* CropImageViewController.m */,
 				3F251A011CCF3C4300A9058A /* ImageLibraryViewController.h */,
 				3F251A021CCF3C4300A9058A /* ImageLibraryViewController.m */,
+				3FBF66751CD467810005EEC1 /* PostToInstagramViewController.h */,
+				3FBF66761CD467810005EEC1 /* PostToInstagramViewController.m */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				3FA0E6941C93C8B000721DFF /* Media.m in Sources */,
 				3F2519F11CCC0E8A00A9058A /* CameraToolbar.m in Sources */,
 				3FA0E6571C910AB500721DFF /* AppDelegate.m in Sources */,
+				3FBF66771CD467810005EEC1 /* PostToInstagramViewController.m in Sources */,
 				3F0B53081CA269E300F93AF7 /* LoginViewController.m in Sources */,
 				3F48B0641CBAC21A000319B3 /* LikeButton.m in Sources */,
 				3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */,
