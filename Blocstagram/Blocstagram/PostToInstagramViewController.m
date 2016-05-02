@@ -251,6 +251,40 @@
         }
     }];
     
+    // Blur filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *blurFilter = [CIFilter filterWithName:@"CIZoomBlur"];
+        if (blurFilter) {
+            NSNumber *inputAmount = [NSNumber numberWithDouble:5.00];
+            [blurFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [blurFilter setValue:inputAmount forKeyPath:kCIInputRadiusKey];
+            [self addCIImageToCollectionView:blurFilter.outputImage withFilterTitle:NSLocalizedString(@"Blur", @"Blur Filter")];
+        }
+    }];
+    
+    // Custom filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *posterizeFilter = [CIFilter filterWithName:@"CIColorPosterize"];
+        CIFilter *bumpDistortionFilter = [CIFilter filterWithName:@"CIBumpDistortion"];
+        
+        if (posterizeFilter) {
+            [posterizeFilter setValue:sourceCIImage forKeyPath:kCIInputImageKey];
+            
+            CIImage *result = posterizeFilter.outputImage;
+            
+            if (bumpDistortionFilter) {
+                NSNumber *inputRadius = [NSNumber numberWithDouble:400];
+                [bumpDistortionFilter setValue:result forKeyPath:kCIInputImageKey];
+                [bumpDistortionFilter setValue:inputRadius forKeyPath:kCIInputRadiusKey];
+                result = bumpDistortionFilter.outputImage;
+            }
+            
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Custom", "Custom filter")];
+        }
+    }];
+    
     // Drunk filter
     
     [self.photoFilterOperationQueue addOperationWithBlock:^{
