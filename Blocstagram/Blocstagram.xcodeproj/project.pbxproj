@@ -16,6 +16,7 @@
 		3F251A031CCF3C4300A9058A /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F251A021CCF3C4300A9058A /* ImageLibraryViewController.m */; };
 		3F46B2641CB0954E006C0D0E /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F46B2631CB0954E006C0D0E /* MediaFullScreenViewController.m */; };
 		3F48B0641CBAC21A000319B3 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B0631CBAC21A000319B3 /* LikeButton.m */; };
+		3F72575F1CD864450016B623 /* FilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F72575E1CD864450016B623 /* FilterTableViewCell.m */; };
 		3FA0E6541C910AB500721DFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6531C910AB500721DFF /* main.m */; };
 		3FA0E6571C910AB500721DFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E6561C910AB500721DFF /* AppDelegate.m */; };
 		3FA0E65F1C910AB500721DFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0E65E1C910AB500721DFF /* Assets.xcassets */; };
@@ -63,6 +64,8 @@
 		3F46B2631CB0954E006C0D0E /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		3F48B0621CBAC21A000319B3 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
 		3F48B0631CBAC21A000319B3 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		3F72575D1CD864450016B623 /* FilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewCell.h; sourceTree = "<group>"; };
+		3F72575E1CD864450016B623 /* FilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewCell.m; sourceTree = "<group>"; };
 		3FA0E64F1C910AB500721DFF /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA0E6531C910AB500721DFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FA0E6551C910AB500721DFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				3F251A021CCF3C4300A9058A /* ImageLibraryViewController.m */,
 				3FBF66751CD467810005EEC1 /* PostToInstagramViewController.h */,
 				3FBF66761CD467810005EEC1 /* PostToInstagramViewController.m */,
+				3F72575D1CD864450016B623 /* FilterTableViewCell.h */,
+				3F72575E1CD864450016B623 /* FilterTableViewCell.m */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				3FA0E69A1C93D80D00721DFF /* DataSource.m in Sources */,
 				3FC0A7AA1CC9E9CD007C17CA /* ComposeCommentView.m in Sources */,
 				3FA0E6541C910AB500721DFF /* main.m in Sources */,
+				3F72575F1CD864450016B623 /* FilterTableViewCell.m in Sources */,
 				3F2519FA1CCC727300A9058A /* UIImage+ImageUtilities.m in Sources */,
 				3FA0E68E1C914CD200721DFF /* ImagesTableViewController.m in Sources */,
 			);
