@@ -30,17 +30,21 @@ static NSInteger labelTag;
 }
 
 - (void) initThumbnailAndLabelAndAddtoSubview:(UIImage *)image andLabelText:(NSString *)text thumbnailEdgeSize:(CGFloat)edgesize {
-    self.thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, edgesize, edgesize)];
-    self.thumbnail.contentMode = UIViewContentModeScaleAspectFill;
-    self.thumbnail.tag = imageViewTag;
-    self.thumbnail.clipsToBounds = YES;
-    [self.contentView addSubview:_thumbnail];
+    if (self.thumbnail == nil) {
+        self.thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, edgesize, edgesize)];
+        self.thumbnail.contentMode = UIViewContentModeScaleAspectFill;
+        self.thumbnail.tag = imageViewTag;
+        self.thumbnail.clipsToBounds = YES;
+        [self.contentView addSubview:_thumbnail];
+    }
     
-    self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, edgesize, edgesize, 20)];
-    self.label.tag = labelTag;
-    self.label.textAlignment = NSTextAlignmentCenter;
-    self.label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-    [self.contentView addSubview:self.label];
+    if (self.label == nil) {
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, edgesize, edgesize, 20)];
+        self.label.tag = labelTag;
+        self.label.textAlignment = NSTextAlignmentCenter;
+        self.label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
+        [self.contentView addSubview:self.label];
+    }
     
     self.thumbnail.image = image;
     self.label.text = text;
