@@ -23,6 +23,11 @@
 @property (nonatomic, strong) UIButton *sendButton;
 
 @property (nonatomic, strong) UIDocumentInteractionController *documentController;
+
+@property (nonatomic, strong) NSLayoutConstraint *previewImageHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *filterImageHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *sendButtonHeightConstraint;
+
 @end
 
 @implementation PostToInstagramViewController
@@ -58,6 +63,12 @@
         
         self.sendBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Send", @"Send button") style:UIBarButtonItemStyleDone target:self action:@selector(sendButtonPressed:)];
         [self addFiltersToQueue];
+        
+        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_previewImageView, _filterCollectionView, _sendButton);
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_previewImageView][__filterCollectionView]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom  metrics:nil views:viewDictionary]];
+        
+        
     }
     
     return self;
