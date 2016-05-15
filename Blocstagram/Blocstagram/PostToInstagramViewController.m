@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UIDocumentInteractionController *documentController;
 
 @property (nonatomic, strong) NSLayoutConstraint *previewImageHeightConstraint;
-@property (nonatomic, strong) NSLayoutConstraint *filterImageHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *filterViewHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *sendButtonHeightConstraint;
 
 @end
@@ -67,8 +67,9 @@
         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_previewImageView, _filterCollectionView, _sendButton);
         
         [self.view addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_previewImageView][_filterCollectionView]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom  metrics:nil views:viewDictionary]];
-        
-        
+        /*
+        [self.view addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_previewImageView]-10-[_filterCollectionView]" options:kNilOptions metrics:nil views:viewDictionary]]
+        */
     }
     
     return self;
@@ -118,11 +119,18 @@
         edgeSize /= 1.5;
     }
     
-    self.previewImageView.frame = CGRectMake(0, self.topLayoutGuide.length, edgeSize, edgeSize);
-    
+    //autolayout replacement code
+    /*
+    self.previewImageHeightConstraint = [NSLayoutConstraint constraintWithItem:_previewImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:edgeSize];
+     
+    //self.previewImageView.frame = CGRectMake(0, self.topLayoutGuide.length, edgeSize, edgeSize);
+    self.sendButtonHeightConstraint = [NSLayoutConstraint constraintWithItem:_sendButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
+     */
     CGFloat buttonHeight = 50;
     CGFloat buffer = 10;
-    
+    /*
+    self.filterViewHeightConstraint = [NSLayoutConstraint constraintWithItem:_filterCollectionView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:<#(CGFloat)#>];
+     */
     CGFloat filterViewYOrigin = CGRectGetMaxY(self.previewImageView.frame) + buffer;
     CGFloat filterViewHeight;
     

@@ -8,6 +8,7 @@
 
 #import "MediaFullScreenViewController.h"
 #import "Media.h"
+#import "AppDelegate.h"
 
 @interface MediaFullScreenViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
@@ -37,7 +38,8 @@
         self.tapOutsideRecognizer.numberOfTapsRequired = 1;
         self.tapOutsideRecognizer.cancelsTouchesInView = NO;
         self.tapOutsideRecognizer.delegate = self;
-        [self.view.window addGestureRecognizer:self.tapOutsideRecognizer];
+        AppDelegate* myDelegate = (((AppDelegate*) [UIApplication sharedApplication].delegate));
+        [myDelegate.window addGestureRecognizer:self.tapOutsideRecognizer];
     }
     
     // #1
@@ -178,10 +180,17 @@
     }
 }
 
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
+}
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return YES;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
