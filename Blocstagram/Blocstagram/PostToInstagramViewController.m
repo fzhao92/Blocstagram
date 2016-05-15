@@ -66,7 +66,7 @@
         
         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_previewImageView, _filterCollectionView, _sendButton);
         
-        [self.view addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_previewImageView][__filterCollectionView]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom  metrics:nil views:viewDictionary]];
+        [self.view addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_previewImageView][_filterCollectionView]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom  metrics:nil views:viewDictionary]];
         
         
     }
