@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3F0B53081CA269E300F93AF7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B53071CA269E300F93AF7 /* LoginViewController.m */; };
+		3F12BD131CE9752900ED2153 /* MediaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F12BD121CE9752900ED2153 /* MediaTests.m */; };
+		3F12BD151CE9753300ED2153 /* ComposeCommentViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F12BD141CE9753300ED2153 /* ComposeCommentViewTests.m */; };
 		3F2519F11CCC0E8A00A9058A /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2519F01CCC0E8A00A9058A /* CameraToolbar.m */; };
 		3F2519F71CCC1B8F00A9058A /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2519F61CCC1B8F00A9058A /* CameraViewController.m */; };
 		3F2519FA1CCC727300A9058A /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2519F91CCC727300A9058A /* UIImage+ImageUtilities.m */; };
@@ -48,6 +50,8 @@
 		00EE954B09AD0D1CA37EEF84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3F0B53061CA269E300F93AF7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3F0B53071CA269E300F93AF7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3F12BD121CE9752900ED2153 /* MediaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTests.m; sourceTree = "<group>"; };
+		3F12BD141CE9753300ED2153 /* ComposeCommentViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentViewTests.m; sourceTree = "<group>"; };
 		3F2519EF1CCC0E8A00A9058A /* CameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraToolbar.h; sourceTree = "<group>"; };
 		3F2519F01CCC0E8A00A9058A /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
 		3F2519F51CCC1B8F00A9058A /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 		3FA0E66B1C910AB500721DFF /* BlocstagramTests */ = {
 			isa = PBXGroup;
 			children = (
+				3F12BD121CE9752900ED2153 /* MediaTests.m */,
+				3F12BD141CE9753300ED2153 /* ComposeCommentViewTests.m */,
 				3FA0E66C1C910AB500721DFF /* BlocstagramTests.m */,
 				3FA0E66E1C910AB500721DFF /* Info.plist */,
 				3FB988711CE80B6200B2B8F1 /* UserTests.m */,
@@ -397,8 +403,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F12BD131CE9752900ED2153 /* MediaTests.m in Sources */,
 				3FB988721CE80B6200B2B8F1 /* UserTests.m in Sources */,
 				3FA0E66D1C910AB500721DFF /* BlocstagramTests.m in Sources */,
+				3F12BD151CE9753300ED2153 /* ComposeCommentViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
