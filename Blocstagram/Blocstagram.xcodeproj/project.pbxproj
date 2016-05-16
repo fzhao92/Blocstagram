@@ -10,6 +10,10 @@
 		3F0B53081CA269E300F93AF7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B53071CA269E300F93AF7 /* LoginViewController.m */; };
 		3F12BD131CE9752900ED2153 /* MediaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F12BD121CE9752900ED2153 /* MediaTests.m */; };
 		3F12BD151CE9753300ED2153 /* ComposeCommentViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F12BD141CE9753300ED2153 /* ComposeCommentViewTests.m */; };
+		3F12BD171CE9790000ED2153 /* MediaTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F12BD161CE9790000ED2153 /* MediaTableViewCellTests.m */; };
+		3F12BD1B1CE97F1D00ED2153 /* IMG_2040.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F12BD181CE97F1D00ED2153 /* IMG_2040.jpg */; };
+		3F12BD1C1CE97F1D00ED2153 /* 05_bmw_m4_gts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F12BD191CE97F1D00ED2153 /* 05_bmw_m4_gts.jpg */; };
+		3F12BD1D1CE97F1D00ED2153 /* IMG_2046.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F12BD1A1CE97F1D00ED2153 /* IMG_2046.jpg */; };
 		3F2519F11CCC0E8A00A9058A /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2519F01CCC0E8A00A9058A /* CameraToolbar.m */; };
 		3F2519F71CCC1B8F00A9058A /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2519F61CCC1B8F00A9058A /* CameraViewController.m */; };
 		3F2519FA1CCC727300A9058A /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2519F91CCC727300A9058A /* UIImage+ImageUtilities.m */; };
@@ -52,6 +56,10 @@
 		3F0B53071CA269E300F93AF7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3F12BD121CE9752900ED2153 /* MediaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTests.m; sourceTree = "<group>"; };
 		3F12BD141CE9753300ED2153 /* ComposeCommentViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentViewTests.m; sourceTree = "<group>"; };
+		3F12BD161CE9790000ED2153 /* MediaTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCellTests.m; sourceTree = "<group>"; };
+		3F12BD181CE97F1D00ED2153 /* IMG_2040.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_2040.jpg; path = ../../../../Desktop/IMG_2040.jpg; sourceTree = "<group>"; };
+		3F12BD191CE97F1D00ED2153 /* 05_bmw_m4_gts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 05_bmw_m4_gts.jpg; path = ../../../../Desktop/05_bmw_m4_gts.jpg; sourceTree = "<group>"; };
+		3F12BD1A1CE97F1D00ED2153 /* IMG_2046.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_2046.jpg; path = ../../../../Desktop/IMG_2046.jpg; sourceTree = "<group>"; };
 		3F2519EF1CCC0E8A00A9058A /* CameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraToolbar.h; sourceTree = "<group>"; };
 		3F2519F01CCC0E8A00A9058A /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
 		3F2519F51CCC1B8F00A9058A /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -202,9 +210,13 @@
 			children = (
 				3F12BD121CE9752900ED2153 /* MediaTests.m */,
 				3F12BD141CE9753300ED2153 /* ComposeCommentViewTests.m */,
+				3F12BD181CE97F1D00ED2153 /* IMG_2040.jpg */,
+				3F12BD191CE97F1D00ED2153 /* 05_bmw_m4_gts.jpg */,
+				3F12BD1A1CE97F1D00ED2153 /* IMG_2046.jpg */,
 				3FA0E66C1C910AB500721DFF /* BlocstagramTests.m */,
 				3FA0E66E1C910AB500721DFF /* Info.plist */,
 				3FB988711CE80B6200B2B8F1 /* UserTests.m */,
+				3F12BD161CE9790000ED2153 /* MediaTableViewCellTests.m */,
 			);
 			path = BlocstagramTests;
 			sourceTree = "<group>";
@@ -318,6 +330,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F12BD1D1CE97F1D00ED2153 /* IMG_2046.jpg in Resources */,
+				3F12BD1B1CE97F1D00ED2153 /* IMG_2040.jpg in Resources */,
+				3F12BD1C1CE97F1D00ED2153 /* 05_bmw_m4_gts.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +421,7 @@
 				3F12BD131CE9752900ED2153 /* MediaTests.m in Sources */,
 				3FB988721CE80B6200B2B8F1 /* UserTests.m in Sources */,
 				3FA0E66D1C910AB500721DFF /* BlocstagramTests.m in Sources */,
+				3F12BD171CE9790000ED2153 /* MediaTableViewCellTests.m in Sources */,
 				3F12BD151CE9753300ED2153 /* ComposeCommentViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
